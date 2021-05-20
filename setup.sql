@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64) qwe
 --
 -- Host: localhost    Database: fintech_business_lender_final
 -- ------------------------------------------------------
@@ -145,11 +145,11 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `full_borrower_report_proc`(IN in_borrower_id INT)
 BEGIN
 
-SELECT b.borrower_id,b.name borrower_name, b.address, b.phone,b.website, 
+SELECT b.borrower_id,b.name borrower_name, b.address, b.phone,b.website,
        e.name sales_rep_of_borrower,
 	   l.loan_id, l.principal_amt, l.total_payable, l.plan_duration,
        r.installment_amt_due, r.due_date,
-       t.amt_paid, t.payment_date, t.remaining_payable_balance	   
+       t.amt_paid, t.payment_date, t.remaining_payable_balance
   FROM borrower_accounts b
    JOIN loans l
     ON b.borrower_id = l.borrower_id
@@ -161,7 +161,7 @@ SELECT b.borrower_id,b.name borrower_name, b.address, b.phone,b.website,
     ON b.emp_id = e.emp_id
  WHERE b.borrower_id = in_borrower_id
  ORDER BY r.payment_id;
-    
+
 
 END ;;
 DELIMITER ;
@@ -182,11 +182,11 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `new_procedure`(IN in_borrower_id INT)
 BEGIN
 
-SELECT b.borrower_id,b.name borrower_name, b.address, b.phone,b.website, 
+SELECT b.borrower_id,b.name borrower_name, b.address, b.phone,b.website,
        e.name sales_rep_of_borrower,
 	   l.loan_id, l.principal_amt, l.total_payable, l.plan_duration,
        r.installment_amt_due, r.due_date,
-       t.amt_paid, t.payment_date, t.remaining_payable_balance	   
+       t.amt_paid, t.payment_date, t.remaining_payable_balance
   FROM borrower_accounts b
    JOIN loans l
     ON b.borrower_id = l.borrower_id
@@ -198,7 +198,7 @@ SELECT b.borrower_id,b.name borrower_name, b.address, b.phone,b.website,
     ON b.emp_id = e.emp_id
  WHERE b.borrower_id = in_borrower_id
  ORDER BY r.payment_id;
-    
+
 
 END ;;
 DELIMITER ;
@@ -234,7 +234,7 @@ IF v_check > 5
 		SELECT v_check days_overdue,"Repayment was overdue. appropriate entry updated." action_taken;
 ELSE SELECT "Payement within due date. No action taken." action_taken;
 END IF;
-     
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
